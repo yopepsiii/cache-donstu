@@ -16,7 +16,7 @@ docker-compose up -d
 ```  
 
 ## TODO
-[] SSO на Go  
-[] ScheduleService | Валидация Lesson для нормальной работы protobuf, а то сейчас с API приходит слишком много ненужной инфы.    
-[] Схемки Pydantic  
-[] Больше функционала
+[ ] SSO на Go  
+[ ] ScheduleService | Валидация Lesson для нормальной работы protobuf, а то сейчас с API приходит слишком много ненужной инфы.    
+[ ] Схемки Pydantic  
+[ ] Больше функционала
