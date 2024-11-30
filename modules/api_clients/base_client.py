@@ -55,10 +55,10 @@ class BaseApiClientAbstract(ABC):
             return response
         except httpx.HTTPStatusError as e:
             # Логирование ошибок статуса
-            raise ValueError(f"HTTP Error occurred: {e.response.status_code} - {e.response.text}") from e
+            raise ValueError(f"HTTP Error: {e.response.status_code} - {e.response.text}") from e
         except httpx.RequestError as e:
             # Логирование сетевых ошибок
-            raise ConnectionError(f"Error during the request: {str(e)}") from e
+            raise ConnectionError(f"Error во время коннектиона: {str(e)}") from e
 
     @abstractmethod
     async def check_token(self) -> bool:

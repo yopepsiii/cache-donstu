@@ -8,6 +8,7 @@ services:
     volumes:
       - ./api-gateway:/usr/src/cacheDonstu/api
       - ./proto:/usr/src/cacheDonstu/proto
+      - ./modules:/usr/src/cacheDonstu/modules
     depends_on:
       - schedule-service
   schedule-service:

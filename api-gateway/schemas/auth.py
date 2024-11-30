@@ -2,7 +2,9 @@ from pydantic import BaseModel
 
 
 class Token(BaseModel):
-    pass
+    email: str
+    access_token: str
 
 class TokenOut(BaseModel):
-    pass
+    access_token: str
+    type: str

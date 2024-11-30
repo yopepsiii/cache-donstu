@@ -20,6 +20,7 @@ message GetScheduleRequest {
   bool showAll = 5;
   int32 studentId = 6;
   int32 teacherId = 7;
+  string access_token = 8;
 }
 
 message GetScheduleResponse {

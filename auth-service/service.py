@@ -11,7 +11,6 @@ from proto.gen.auth.auth_pb2 import LoginRequest, LoginResponse
 class AuthService(auth_pb2_grpc.AuthServicer):
     @logger.catch
     async def Login(self, request: LoginRequest, context: grpc.aio.ServicerContext) -> LoginResponse:
-        logger.info(f"{request}")
 
         client = DonstuAPIClient()
 

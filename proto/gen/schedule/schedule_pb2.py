@@ -24,7 +24,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0eschedule.proto\x12\x08schedule\"<\n\x06Lesson\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x12\n\nstart_time\x18\x02 \x01(\t\x12\x10\n\x08\x65nd_time\x18\x03 \x01(\t\"\x9e\x01\n\x12GetScheduleRequest\x12\x18\n\x10\x65\x64ucationSpaceID\x18\x01 \x01(\x05\x12\r\n\x05month\x18\x02 \x01(\x05\x12\x19\n\x11showJournalFilled\x18\x03 \x01(\x08\x12\r\n\x05years\x18\x04 \x01(\t\x12\x0f\n\x07showAll\x18\x05 \x01(\x08\x12\x11\n\tstudentId\x18\x06 \x01(\x05\x12\x11\n\tteacherId\x18\x07 \x01(\x05\"8\n\x13GetScheduleResponse\x12!\n\x07lessons\x18\x01 \x03(\x0b\x32\x10.schedule.Lesson2V\n\x08Schedule\x12J\n\x0bGetSchedule\x12\x1c.schedule.GetScheduleRequest\x1a\x1d.schedule.GetScheduleResponseb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0eschedule.proto\x12\x08schedule\"<\n\x06Lesson\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x12\n\nstart_time\x18\x02 \x01(\t\x12\x10\n\x08\x65nd_time\x18\x03 \x01(\t\"\xb4\x01\n\x12GetScheduleRequest\x12\x18\n\x10\x65\x64ucationSpaceID\x18\x01 \x01(\x05\x12\r\n\x05month\x18\x02 \x01(\x05\x12\x19\n\x11showJournalFilled\x18\x03 \x01(\x08\x12\r\n\x05years\x18\x04 \x01(\t\x12\x0f\n\x07showAll\x18\x05 \x01(\x08\x12\x11\n\tstudentId\x18\x06 \x01(\x05\x12\x11\n\tteacherId\x18\x07 \x01(\x05\x12\x14\n\x0c\x61\x63\x63\x65ss_token\x18\x08 \x01(\t\"8\n\x13GetScheduleResponse\x12!\n\x07lessons\x18\x01 \x03(\x0b\x32\x10.schedule.Lesson2V\n\x08Schedule\x12J\n\x0bGetSchedule\x12\x1c.schedule.GetScheduleRequest\x1a\x1d.schedule.GetScheduleResponseb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -34,9 +34,9 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['_LESSON']._serialized_start=28
   _globals['_LESSON']._serialized_end=88
   _globals['_GETSCHEDULEREQUEST']._serialized_start=91
-  _globals['_GETSCHEDULEREQUEST']._serialized_end=249
-  _globals['_GETSCHEDULERESPONSE']._serialized_start=251
-  _globals['_GETSCHEDULERESPONSE']._serialized_end=307
-  _globals['_SCHEDULE']._serialized_start=309
-  _globals['_SCHEDULE']._serialized_end=395
+  _globals['_GETSCHEDULEREQUEST']._serialized_end=271
+  _globals['_GETSCHEDULERESPONSE']._serialized_start=273
+  _globals['_GETSCHEDULERESPONSE']._serialized_end=329
+  _globals['_SCHEDULE']._serialized_start=331
+  _globals['_SCHEDULE']._serialized_end=417
 # @@protoc_insertion_point(module_scope)

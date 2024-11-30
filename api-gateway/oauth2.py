@@ -1,12 +1,13 @@
 from fastapi import Depends, HTTPException
 from fastapi.security import OAuth2PasswordBearer
 from jose import JWTError
+from loguru import logger
 from starlette import status
 
 from modules.api_clients.donstu_client import DonstuAPIClient
 from schemas.auth import Token
 
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="login")
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="login_dstu")
 
 
 async def verify_dstu_token(token: str, credentials_exception):

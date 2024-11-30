@@ -16,7 +16,7 @@ class Lesson(_message.Message):
     def __init__(self, name: _Optional[str] = ..., start_time: _Optional[str] = ..., end_time: _Optional[str] = ...) -> None: ...
 
 class GetScheduleRequest(_message.Message):
-    __slots__ = ("educationSpaceID", "month", "showJournalFilled", "years", "showAll", "studentId", "teacherId")
+    __slots__ = ("educationSpaceID", "month", "showJournalFilled", "years", "showAll", "studentId", "teacherId", "access_token")
     EDUCATIONSPACEID_FIELD_NUMBER: _ClassVar[int]
     MONTH_FIELD_NUMBER: _ClassVar[int]
     SHOWJOURNALFILLED_FIELD_NUMBER: _ClassVar[int]
@@ -24,6 +24,7 @@ class GetScheduleRequest(_message.Message):
     SHOWALL_FIELD_NUMBER: _ClassVar[int]
     STUDENTID_FIELD_NUMBER: _ClassVar[int]
     TEACHERID_FIELD_NUMBER: _ClassVar[int]
+    ACCESS_TOKEN_FIELD_NUMBER: _ClassVar[int]
     educationSpaceID: int
     month: int
     showJournalFilled: bool
@@ -31,7 +32,8 @@ class GetScheduleRequest(_message.Message):
     showAll: bool
     studentId: int
     teacherId: int
-    def __init__(self, educationSpaceID: _Optional[int] = ..., month: _Optional[int] = ..., showJournalFilled: bool = ..., years: _Optional[str] = ..., showAll: bool = ..., studentId: _Optional[int] = ..., teacherId: _Optional[int] = ...) -> None: ...
+    access_token: str
+    def __init__(self, educationSpaceID: _Optional[int] = ..., month: _Optional[int] = ..., showJournalFilled: bool = ..., years: _Optional[str] = ..., showAll: bool = ..., studentId: _Optional[int] = ..., teacherId: _Optional[int] = ..., access_token: _Optional[str] = ...) -> None: ...
 
 class GetScheduleResponse(_message.Message):
     __slots__ = ("lessons",)
