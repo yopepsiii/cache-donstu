@@ -1,0 +1,28 @@
+services:
+  api:
+    container_name: api
+    build:
+      context: api-gateway
+    ports:
+      - 80:8000
+    volumes:
+      - ./api-gateway:/usr/src/cacheDonstu/api
+      - ./proto:/usr/src/cacheDonstu/proto
+    depends_on:
+      - schedule-service
+  schedule-service:
+    container_name: schedule-service
+    build:
+      context: schedule-service
+    volumes:
+      - ./schedule-service:/usr/src/cacheDonstu/schedule-service
+      - ./proto:/usr/src/cacheDonstu/proto
+      - ./modules:/usr/src/cacheDonstu/modules
+  auth-service:
+    container_name: auth-service
+    build:
+      context: auth-service
+    volumes:
+      - ./auth-service:/usr/src/cacheDonstu/auth-service
+      - ./proto:/usr/src/cacheDonstu/proto
+      - ./modules:/usr/src/cacheDonstu/modules

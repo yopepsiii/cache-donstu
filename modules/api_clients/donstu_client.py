@@ -3,7 +3,7 @@ from typing import Optional
 from fastapi import HTTPException
 from starlette import status
 
-from base_client import BaseApiClientAbstract, RequestMethods
+from modules.api_clients.base_client import BaseApiClientAbstract, RequestMethods
 
 
 class DonstuAPIClient(BaseApiClientAbstract):

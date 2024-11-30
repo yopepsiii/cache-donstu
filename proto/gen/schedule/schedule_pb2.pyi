@@ -16,18 +16,22 @@ class Lesson(_message.Message):
     def __init__(self, name: _Optional[str] = ..., start_time: _Optional[str] = ..., end_time: _Optional[str] = ...) -> None: ...
 
 class GetScheduleRequest(_message.Message):
-    __slots__ = ("educationSpaceID", "month", "showJournalFilled", "years", "showAll")
+    __slots__ = ("educationSpaceID", "month", "showJournalFilled", "years", "showAll", "studentId", "teacherId")
     EDUCATIONSPACEID_FIELD_NUMBER: _ClassVar[int]
     MONTH_FIELD_NUMBER: _ClassVar[int]
     SHOWJOURNALFILLED_FIELD_NUMBER: _ClassVar[int]
     YEARS_FIELD_NUMBER: _ClassVar[int]
     SHOWALL_FIELD_NUMBER: _ClassVar[int]
+    STUDENTID_FIELD_NUMBER: _ClassVar[int]
+    TEACHERID_FIELD_NUMBER: _ClassVar[int]
     educationSpaceID: int
     month: int
     showJournalFilled: bool
     years: str
     showAll: bool
-    def __init__(self, educationSpaceID: _Optional[int] = ..., month: _Optional[int] = ..., showJournalFilled: bool = ..., years: _Optional[str] = ..., showAll: bool = ...) -> None: ...
+    studentId: int
+    teacherId: int
+    def __init__(self, educationSpaceID: _Optional[int] = ..., month: _Optional[int] = ..., showJournalFilled: bool = ..., years: _Optional[str] = ..., showAll: bool = ..., studentId: _Optional[int] = ..., teacherId: _Optional[int] = ...) -> None: ...
 
 class GetScheduleResponse(_message.Message):
     __slots__ = ("lessons",)

@@ -1,7 +1,7 @@
 FROM python:3.12-alpine
 
 # Рабочая директория
-WORKDIR /usr/src/cacheDonstu/schedule-service
+WORKDIR /usr/src/cacheDonstu/auth-service
 
 # Копирование зависимостей
 COPY requirements.txt .
@@ -12,7 +12,7 @@ RUN apk add --no-cache gcc musl-dev linux-headers && \
     apk del gcc musl-dev linux-headers
 
 # Копирование исходного кода
-COPY . /usr/src/cacheDonstu/schedule-service
+COPY . .
 
 # Установка переменной PYTHONPATH
 ENV PYTHONPATH=/usr/src/cacheDonstu

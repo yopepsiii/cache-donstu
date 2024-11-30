@@ -3,16 +3,16 @@ import asyncio
 from loguru import logger
 
 import grpc
-from proto.gen.schedule import schedule_pb2_grpc
-from service import ScheduleService
+from proto.gen.auth import auth_pb2_grpc
+from service import AuthService
 
 
 async def serve():
     server = grpc.aio.server()
-    schedule_pb2_grpc.add_ScheduleServicer_to_server(ScheduleService(), server)  # Запуск сервера на порту 50051
-    server.add_insecure_port('0.0.0.0:50051')
+    auth_pb2_grpc.add_AuthServicer_to_server(AuthService(), server)
+    server.add_insecure_port('0.0.0.0:50052')
     await server.start()
-    logger.info('🌀 ScheduleService is active --- schedule_service:50051')
+    logger.info('💫  AuthService is active --- auth-service:50052')
     await server.wait_for_termination()
 
 

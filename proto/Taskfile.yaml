@@ -1,0 +1,21 @@
+# See: https://taskfile.dev/api/
+
+# ОБЯЗАТЕЛЬНО!
+# При каждой генерации неправильно пишутся импорты, фиксить их.
+
+version: "3"
+
+tasks:
+  schedule_service_generate:
+    aliases:
+      - ss_gen
+    desc: "Генерируем код для ScheduleService"
+    cmds:
+      - python -m grpc_tools.protoc -I protos/schedule --python_out=gen/schedule --pyi_out=gen/schedule --grpc_python_out=gen/schedule protos/schedule/schedule.proto
+
+  auth_service_generate:
+    aliases:
+      - auth_gen
+    desc: 'Генерируем код для AuthService'
+    cmds:
+      - python -m grpc_tools.protoc -I protos/auth --python_out=gen/auth --pyi_out=gen/auth --grpc_python_out=gen/auth protos/auth/auth.proto

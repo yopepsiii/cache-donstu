@@ -3,13 +3,13 @@ from fastapi.security import OAuth2PasswordBearer
 from jose import JWTError
 from starlette import status
 
-from app.clients.donstu_client import DonstuAPIClient
-from app.schemas.auth import Token
+from modules.api_clients.donstu_client import DonstuAPIClient
+from schemas.auth import Token
 
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="login/dstu")
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="login")
 
 
-async def verify_token(token: str, credentials_exception):
+async def verify_dstu_token(token: str, credentials_exception):
     try:
         client = DonstuAPIClient(access_token=token)
         email = await client.check_token()
@@ -31,4 +31,4 @@ async def get_current_user(token: str = Depends(oauth2_scheme)):
         detail="Не получилось подтвердить данные.",
         headers={"WWW-Authenticate": "Bearer"},
     )  # Создаем описание ошибки для неправильного токена
-    return await verify_token(token, credentials_exception)
+    return await verify_dstu_token(token, credentials_exception)
