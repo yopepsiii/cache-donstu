@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package schedule;
+
+message Lesson {
+  string name = 1;
+  string start_time = 2;
+  string end_time = 3;
+}
+
+service Schedule {
+    rpc GetSchedule (GetScheduleRequest) returns (GetScheduleResponse);
+}
+
+message GetScheduleRequest {
+  int32 educationSpaceID = 1;
+  int32 month = 2;
+  bool showJournalFilled = 3;
+  string years = 4;
+  bool showAll = 5;
+}
+
+message GetScheduleResponse {
+  repeated Lesson lessons = 1;
+}
