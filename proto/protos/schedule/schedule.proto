@@ -2,10 +2,28 @@ syntax = "proto3";
 
 package schedule;
 
+message GroupInfo {
+  string name = 1;
+  int32 groupID = 2;
+}
+
+message LessonInfo {
+  string moduleName = 1;
+  string theme = 2;
+  string aud = 3;
+  repeated GroupInfo groups = 5;
+}
+
 message Lesson {
   string name = 1;
-  string start_time = 2;
-  string end_time = 3;
+  string color = 2;
+  string start = 3;
+  string end = 4;
+  string type = 5;
+  string dateChange = 6;
+  int32 educationSpaceID = 7;
+  bool isControlEvent = 8;
+  LessonInfo info = 9;
 }
 
 service Schedule {
@@ -16,11 +34,17 @@ message GetScheduleRequest {
   int32 educationSpaceID = 1;
   int32 month = 2;
   bool showJournalFilled = 3;
-  string years = 4;
-  bool showAll = 5;
-  int32 studentId = 6;
-  int32 teacherId = 7;
-  string access_token = 8;
+  string aud = 4;
+  int32 moduleID = 5;
+  int32 typeID = 6;
+  int32 themeID = 7;
+  int32 kafID = 8;
+  repeated int32 groupsIDs = 9;
+  repeated int32 studentsIDs = 10;
+  repeated int32 teachersIDs = 11;
+  string year = 12;
+  bool showAll = 13;
+  string access_token = 14;
 }
 
 message GetScheduleResponse {

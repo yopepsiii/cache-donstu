@@ -1,7 +1,10 @@
-from typing import Optional
+from typing import Any, Optional, Type
 
 from fastapi import HTTPException
+from loguru import logger
 from starlette import status
+
+from typing import Optional
 
 from modules.api_clients.base_client import BaseApiClientAbstract, RequestMethods
 
@@ -30,13 +33,18 @@ class DonstuAPIClient(BaseApiClientAbstract):
                                       url="/RaspManager",
                                       params=params
                                       )
-        print(res.json())
+        logger.info(f"Request URL: {res.request.url}")
+
         raspList = res.json().get("data").get('raspList')
 
         if len(raspList) == 0:
             return []
 
         return raspList
+            
+        
+
+        
 
 
 

@@ -1,6 +1,6 @@
 import json
 from typing import Annotated
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, HTTPException
 from fastapi.datastructures import FormData
 from fastapi.security import OAuth2PasswordRequestForm
 from proto.gen.auth import auth_pb2_grpc
@@ -19,8 +19,12 @@ async def login_via_dstu(form_data: Annotated[OAuth2PasswordRequestForm, Depends
     async with grpc.aio.insecure_channel('auth-service:50052') as channel:
         stub = auth_pb2_grpc.AuthStub(channel)
 
-        response = await stub.Login(LoginRequest(email=form_data.username,
+        try:
+            response = await stub.Login(LoginRequest(email=form_data.username,
                                                  password=form_data.password,
                                                  app_id=0))
-        return {'access_token': response.token,
-                'type': 'bearer'}
+            return {'access_token': response.token,
+                    'type': 'bearer'}
+        except Exception as e:
+            logger.error(str(e))
+            raise HTTPException(status_code=401, detail="Неверно введены логин или пароль.")

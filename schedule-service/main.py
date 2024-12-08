@@ -17,4 +17,10 @@ async def serve():
 
 
 if __name__ == '__main__':
+    logger.add('schedule_service_debug.log', 
+		   format="{time:YYYY-MM-DD HH:mm:ss.SSS} {level} {message}",
+		   level="DEBUG",
+		   rotation='10 MB',
+		   compression='zip' 
+		  )
     asyncio.run(serve())

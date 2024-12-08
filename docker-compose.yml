@@ -27,3 +27,10 @@ services:
       - ./auth-service:/usr/src/cacheDonstu/auth-service
       - ./proto:/usr/src/cacheDonstu/proto
       - ./modules:/usr/src/cacheDonstu/modules
+  redis:
+    container_name: redis
+    image: redis:latest
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+    

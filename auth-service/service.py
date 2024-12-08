@@ -22,9 +22,11 @@ class AuthService(auth_pb2_grpc.AuthServicer):
         res = await client.make_request(method=RequestMethods.POST,
                                         json=data,
                                         url='/tokenauth')
+
         res_data = res.json().get('data')
-        if res_data == 'uNull':
-            raise HTTPException(status_code=401, detail='Данные для входа не верные.')
+
+        if res_data in ('uNull', None):
+            raise Exception('Данные для входа не верные.')
 
         access_token = res_data.get('accessToken')
 

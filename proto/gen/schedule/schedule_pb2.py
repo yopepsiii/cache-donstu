@@ -24,19 +24,23 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0eschedule.proto\x12\x08schedule\"<\n\x06Lesson\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x12\n\nstart_time\x18\x02 \x01(\t\x12\x10\n\x08\x65nd_time\x18\x03 \x01(\t\"\xb4\x01\n\x12GetScheduleRequest\x12\x18\n\x10\x65\x64ucationSpaceID\x18\x01 \x01(\x05\x12\r\n\x05month\x18\x02 \x01(\x05\x12\x19\n\x11showJournalFilled\x18\x03 \x01(\x08\x12\r\n\x05years\x18\x04 \x01(\t\x12\x0f\n\x07showAll\x18\x05 \x01(\x08\x12\x11\n\tstudentId\x18\x06 \x01(\x05\x12\x11\n\tteacherId\x18\x07 \x01(\x05\x12\x14\n\x0c\x61\x63\x63\x65ss_token\x18\x08 \x01(\t\"8\n\x13GetScheduleResponse\x12!\n\x07lessons\x18\x01 \x03(\x0b\x32\x10.schedule.Lesson2V\n\x08Schedule\x12J\n\x0bGetSchedule\x12\x1c.schedule.GetScheduleRequest\x1a\x1d.schedule.GetScheduleResponseb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0eschedule.proto\x12\x08schedule\"*\n\tGroupInfo\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0f\n\x07groupID\x18\x02 \x01(\x05\"a\n\nLessonInfo\x12\x12\n\nmoduleName\x18\x01 \x01(\t\x12\r\n\x05theme\x18\x02 \x01(\t\x12\x0b\n\x03\x61ud\x18\x03 \x01(\t\x12#\n\x06groups\x18\x05 \x03(\x0b\x32\x13.schedule.GroupInfo\"\xb9\x01\n\x06Lesson\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\r\n\x05\x63olor\x18\x02 \x01(\t\x12\r\n\x05start\x18\x03 \x01(\t\x12\x0b\n\x03\x65nd\x18\x04 \x01(\t\x12\x0c\n\x04type\x18\x05 \x01(\t\x12\x12\n\ndateChange\x18\x06 \x01(\t\x12\x18\n\x10\x65\x64ucationSpaceID\x18\x07 \x01(\x05\x12\x16\n\x0eisControlEvent\x18\x08 \x01(\x08\x12\"\n\x04info\x18\t \x01(\x0b\x32\x14.schedule.LessonInfo\"\x99\x02\n\x12GetScheduleRequest\x12\x18\n\x10\x65\x64ucationSpaceID\x18\x01 \x01(\x05\x12\r\n\x05month\x18\x02 \x01(\x05\x12\x19\n\x11showJournalFilled\x18\x03 \x01(\x08\x12\x0b\n\x03\x61ud\x18\x04 \x01(\t\x12\x10\n\x08moduleID\x18\x05 \x01(\x05\x12\x0e\n\x06typeID\x18\x06 \x01(\x05\x12\x0f\n\x07themeID\x18\x07 \x01(\x05\x12\r\n\x05kafID\x18\x08 \x01(\x05\x12\x11\n\tgroupsIDs\x18\t \x03(\x05\x12\x13\n\x0bstudentsIDs\x18\n \x03(\x05\x12\x13\n\x0bteachersIDs\x18\x0b \x03(\x05\x12\x0c\n\x04year\x18\x0c \x01(\t\x12\x0f\n\x07showAll\x18\r \x01(\x08\x12\x14\n\x0c\x61\x63\x63\x65ss_token\x18\x0e \x01(\t\"8\n\x13GetScheduleResponse\x12!\n\x07lessons\x18\x01 \x03(\x0b\x32\x10.schedule.Lesson2V\n\x08Schedule\x12J\n\x0bGetSchedule\x12\x1c.schedule.GetScheduleRequest\x1a\x1d.schedule.GetScheduleResponseb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'schedule_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   DESCRIPTOR._loaded_options = None
-  _globals['_LESSON']._serialized_start=28
-  _globals['_LESSON']._serialized_end=88
-  _globals['_GETSCHEDULEREQUEST']._serialized_start=91
-  _globals['_GETSCHEDULEREQUEST']._serialized_end=271
-  _globals['_GETSCHEDULERESPONSE']._serialized_start=273
-  _globals['_GETSCHEDULERESPONSE']._serialized_end=329
-  _globals['_SCHEDULE']._serialized_start=331
-  _globals['_SCHEDULE']._serialized_end=417
+  _globals['_GROUPINFO']._serialized_start=28
+  _globals['_GROUPINFO']._serialized_end=70
+  _globals['_LESSONINFO']._serialized_start=72
+  _globals['_LESSONINFO']._serialized_end=169
+  _globals['_LESSON']._serialized_start=172
+  _globals['_LESSON']._serialized_end=357
+  _globals['_GETSCHEDULEREQUEST']._serialized_start=360
+  _globals['_GETSCHEDULEREQUEST']._serialized_end=641
+  _globals['_GETSCHEDULERESPONSE']._serialized_start=643
+  _globals['_GETSCHEDULERESPONSE']._serialized_end=699
+  _globals['_SCHEDULE']._serialized_start=701
+  _globals['_SCHEDULE']._serialized_end=787
 # @@protoc_insertion_point(module_scope)
