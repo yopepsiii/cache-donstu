@@ -36,3 +36,7 @@ app.add_middleware(CORSMiddleware,
 
 app.include_router(schedule.router)
 app.include_router(auth.router)
+
+@app.get("/")
+async def index():
+    return {"welcome": "To my API"}

@@ -11,6 +11,7 @@ services:
       - ./modules:/usr/src/cacheDonstu/modules
     depends_on:
       - schedule-service
+      - auth-service
   schedule-service:
     container_name: schedule-service
     build:
