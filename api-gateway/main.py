@@ -10,16 +10,16 @@ from redis import asyncio as aioredis
 from fastapi_cache.backends.redis import RedisBackend
 from utils import api_key_builder
 
-logger.add('api_gateway_debug.log', 
+@asynccontextmanager
+async def lifespan(_: FastAPI) -> AsyncIterator[None]:
+    logger.add('api_gateway_debug.log', 
 		   format="{time:YYYY-MM-DD HH:mm:ss.SSS} {level} {message}",
 		   level="DEBUG",
 		   rotation='10 MB',
 		   compression='zip' 
 		  )
 
-@asynccontextmanager
-async def lifespan(_: FastAPI) -> AsyncIterator[None]:
-    redis = aioredis.from_url("redis://redis")
+    redis = aioredis.from_url("redis://redis:6379")
     FastAPICache.init(RedisBackend(redis),
                       prefix="cache-edu",
                       key_builder=api_key_builder)
