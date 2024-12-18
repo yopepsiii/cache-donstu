@@ -20,6 +20,8 @@ async def lifespan(_: FastAPI) -> AsyncIterator[None]:
 		   compression='zip'
 		  )
 
+@asynccontextmanager
+async def lifespan(_: FastAPI) -> AsyncIterator[None]:
     redis = aioredis.from_url("redis://redis")
     FastAPICache.init(RedisBackend(redis),
                       prefix="cache-edu",
@@ -37,3 +39,7 @@ app.add_middleware(CORSMiddleware,
 
 app.include_router(schedule.router)
 app.include_router(auth.router)
+
+@app.get("/")
+async def index():
+    return {"welcome": "To my API"}
