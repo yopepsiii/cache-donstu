@@ -1,4 +1,4 @@
-FROM python:3.12-alpine
+FROM python:3.12-slim
 
 # Рабочая директория
 WORKDIR /usr/src/cacheDonstu/auth-service
@@ -7,9 +7,7 @@ WORKDIR /usr/src/cacheDonstu/auth-service
 COPY requirements.txt .
 
 # Установка системных библиотек для сборки пакетов
-RUN apk add --no-cache gcc musl-dev linux-headers && \
-    pip install --no-cache-dir -r requirements.txt && \
-    apk del gcc musl-dev linux-headers
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Копирование исходного кода
 COPY . .

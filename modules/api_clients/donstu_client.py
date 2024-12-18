@@ -21,6 +21,8 @@ class DonstuAPIClient(BaseApiClientAbstract):
         res = await self.make_request(method=RequestMethods.GET,
                                       url="/tokenauth")
 
+        logger.info(res)
+
         if res.status_code == 200:
             username = res.json().get("data").get('userName')
             if username:
@@ -33,7 +35,8 @@ class DonstuAPIClient(BaseApiClientAbstract):
                                       url="/RaspManager",
                                       params=params
                                       )
-        logger.info(f"Request URL: {res.request.url}")
+        
+        logger.info(res)
 
         raspList = res.json().get("data").get('raspList')
 

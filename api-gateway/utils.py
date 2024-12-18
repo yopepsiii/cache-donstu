@@ -37,11 +37,8 @@ def api_key_builder(
             else:
                 pass
 
-    
     # print("request:", request, "request.base_url:", request.base_url, "request.url:", request.url)
     arguments['url'] = request.url
-
-    logger.info(f"Redis cache key args: {arguments}")
 
     prefix = f"{namespace}:"
     cache_key = (

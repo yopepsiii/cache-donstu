@@ -19,6 +19,8 @@ async def login_via_dstu(form_data: Annotated[OAuth2PasswordRequestForm, Depends
     async with grpc.aio.insecure_channel('auth-service:50052') as channel:
         stub = auth_pb2_grpc.AuthStub(channel)
 
+        logger.info(f"Тело запроса: {form_data}")
+        
         try:
             response = await stub.Login(LoginRequest(email=form_data.username,
                                                  password=form_data.password,

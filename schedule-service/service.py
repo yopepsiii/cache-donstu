@@ -32,7 +32,7 @@ class ScheduleService(schedule_pb2_grpc.ScheduleServicer):
        request_params = {key: value for key, value in request_params.items() if value not in (None, 0, [], '')}
        encoded_params = urlencode(request_params, doseq=True)
 
-       logger.info(f"Request encoded_params: {encoded_params}")
+       logger.info(f"Encoded_params: {encoded_params}")
 
        json_lessons = await client.get_schedule(encoded_params)
 

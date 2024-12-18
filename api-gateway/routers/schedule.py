@@ -40,9 +40,8 @@ async def get_schedule(education_space_id: int,
         normal_groups_ids = list(map(int, groups_ids.split(", ") if groups_ids else []))
         normal_students_ids = list(map(int, students_ids.split(", ") if students_ids else []))
         normal_teachers_ids = list(map(int, teachers_ids.split(", ") if teachers_ids else []))
-                
-        try:
-            response = await stub.GetSchedule(GetScheduleRequest(educationSpaceID=education_space_id,
+
+        get_schedule_request = GetScheduleRequest(educationSpaceID=education_space_id,
                                                              month=month,
                                                              year=year,
                                                              moduleID=module_id,
@@ -55,7 +54,10 @@ async def get_schedule(education_space_id: int,
                                                              teachersIDs=normal_teachers_ids,
                                                              showJournalFilled=show_journal_filled,
                                                              showAll=show_all,
-                                                             access_token=current_user_data.access_token))
+                                                             access_token=current_user_data.access_token)
+        logger.info(f"Query params: {get_schedule_request}")
+        try:
+            response = await stub.GetSchedule(get_schedule_request)
             return json.loads(MessageToJson(response).encode('utf-8')).get('lessons')
         except Exception as e:
             logger.error(str(e))
